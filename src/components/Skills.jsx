@@ -17,6 +17,9 @@ export const Skills = () => {
         <div className="heading">
           <h2>Skills</h2>
         </div>
+        <div className="heading">
+          <h2>Skills</h2>
+        </div>
         <div className="skills-container">
         </div>
       </div>
