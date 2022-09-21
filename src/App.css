@@ -36,7 +36,7 @@ h3 {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(48, 191, 186, 0.9);
+  background: rgba(88, 191, 48, 0.9);
 }
 
 .profile-thumb {
@@ -68,7 +68,7 @@ h3 {
 
 .social-icons li a {
   display: inline-block;
-  color: #30BFBA;
+  color: #4dbf30;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -126,7 +126,7 @@ h3 {
 }
 
 .contact {
- background: #30BFBA;
+ background: #4dbf30;
 }
 
 .contact-contents {
@@ -150,5 +150,5 @@ h3 {
 #contact .btn {
  height: 54px;
  background: #fff;
- color: #30BFBA;
+ color: #4dbf30;
 }
