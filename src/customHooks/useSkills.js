@@ -11,17 +11,26 @@ const LANGUAGE_COUNT_BASE = 10;
 export const useSkills = () => {
   const [state, dispatch] = useReducer(skillReducer, initialState);
 
-  useEffect(() => {
-    dispatch({ type: actionTypes.fetch });
-    axios.get('https://api.github.com/users/atsu0203/repos')
+  const fetchReposApi = () => {
+    axios.get('https://api.github.com/users/USER_NAME/repos')
       .then((response) => {
         const languageList = response.data.map(res => res.language)
         const countedLanguageList = generateLanguageCountObj(languageList)
-        dispatch({ type: actionTypes.success, payload: { languageList: countedLanguageList } });
+        dispatch({ type: actionTypes.success, payload: {languageList: countedLanguageList } });
       })
       .catch(() => {
         dispatch({ type: actionTypes.error });
       });
+  }
+
+  useEffect(() => {
+    if (state.requestState !== requestStates.loading) { return; }
+    fetchReposApi();
+  }, [state.requestState]);
+
+
+  useEffect(() => {
+    dispatch({ type: actionTypes.fetch });
    }, []);
 
   const generateLanguageCountObj = (allLanguageList) => {
@@ -37,8 +46,8 @@ export const useSkills = () => {
   };
 
   const converseCountToPercentage = (languageCount) => {
-    if (count > LANGUAGE_COUNT_BASE) { return DEFAULT_MAX_PERCENTAGE; }
-    return count * LANGUAGE_COUNT_BASE;
+    if (languageCount > LANGUAGE_COUNT_BASE) { return DEFAULT_MAX_PERCENTAGE; }
+    return languageCount * LANGUAGE_COUNT_BASE;
   };
 
   const sortedLanguageList = () => (

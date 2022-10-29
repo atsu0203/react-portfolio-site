@@ -3,9 +3,8 @@ export const Contact = () => {
     <div id="contact" className="contact">
       <div className="container">
         <div className="contact-contents">
-          <h2>Contact to Me!</h2>
-          <p className="description">お仕事のご相談・ご依頼など下記よりご連絡ください。</p>
-          <a href="https://twitter.com/" className="btn">Contact Us</a>
+          <p className="description">Skillsの項目は、github.com/atsu0203のrepositoriesを元に作成しております。</p>
+          <a href="https://github.com/atsu0203" className="btn">Github（atsu0203）へ</a>
         </div>
       </div>
     </div>
