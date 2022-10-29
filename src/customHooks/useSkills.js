@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
+import { requestStates } from '../constants';
 
 import { skillReducer, initialState, actionTypes } from '../reducers/skillReducer';
 
@@ -12,13 +13,13 @@ export const useSkills = () => {
   const [state, dispatch] = useReducer(skillReducer, initialState);
 
   const fetchReposApi = () => {
-    axios.get('https://api.github.com/users/USER_NAME/repos')
+    axios.get('https://api.github.com/users/atsu0203/repos')
       .then((response) => {
         const languageList = response.data.map(res => res.language)
         const countedLanguageList = generateLanguageCountObj(languageList)
         dispatch({ type: actionTypes.success, payload: {languageList: countedLanguageList } });
       })
-      .catch(() => {
+      .catch((response) => {
         dispatch({ type: actionTypes.error });
       });
   }
