@@ -27,6 +27,7 @@ export const useSkills = () => {
   useEffect(() => {
     if (state.requestState !== requestStates.loading) { return; }
     fetchReposApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.requestState]);
 
 
